@@ -35,7 +35,6 @@
 	top: 0;
 	right: 0;
 	height: 80px;
-	background: #000;
 	padding: 0 32px 0 32px;
 	border-radius: 0 0 12px 12px;
 	z-index: 101;
@@ -138,7 +137,8 @@ body {
 	transition: background 0.2s;
 }
 .register-btn:hover {
-	background: #7a2fff;
+	background: #020024;
+	background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(162, 89, 255, 1) 35%, rgba(168, 67, 181, 1) 100%);
 }
 .menu-wrapper {
 	position: relative;
