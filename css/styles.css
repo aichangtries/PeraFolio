@@ -1,0 +1,449 @@
+/* Shared global, header, menu and footer styles (reusable across pages) */
+
+body {
+    margin: 0;
+    font-family: 'Inter', Arial, sans-serif;
+    background: #181818;
+    color: #e0e0e0;
+}
+
+/* Header */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: #000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 36px;
+    z-index: 100;
+    box-sizing: border-box;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+.logo-img {
+    height: 52px;
+    display: block;
+    margin-right: 0;
+}
+
+/* group logo + register on the left */
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Register button used in header */
+.register-btn {
+    background: linear-gradient(180deg, #a259ff 0%, #7a2fff 100%);
+    color: #efe9f8;
+    border: 1px solid rgba(0,0,0,0.18);
+    box-shadow: 0 6px 18px rgba(162,89,255,0.12);
+    border-radius: 24px;
+    padding: 6px 18px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    font-style: italic;
+    cursor: pointer;
+    margin: 0; /* reset previous margins so it stays close to logo */
+    transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+.register-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 10px 26px rgba(122,47,255,0.14);
+}
+
+/* Menu wrapper (shared) */
+.menu-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 80px;
+}
+
+/* Burger icon (default visible) */
+.menu-burger,
+.menu-icon {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    cursor: pointer;
+    width: 36px;
+    height: 36px;
+    justify-content: center;
+    align-items: center;
+    z-index: 102;
+    transition: opacity 0.2s;
+}
+.menu-burger span,
+.menu-icon span {
+    display: block;
+    width: 32px;
+    height: 3px;
+    background: #a259ff;
+    border-radius: 2px;
+    transition: background 0.2s;
+}
+
+/* Inline nav (for wide view) */
+.menu-nav-inline,
+.menu-nav-flyout,
+.menu-nav { /* .menu-nav kept as generic name for responsive rules */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 56px;
+}
+
+/* Flyout nav (positioned absolute when shown) */
+.menu-nav-flyout {
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 80px;
+    background: #000;
+    padding: 0 32px;
+    border-radius: 0 0 12px 12px;
+    z-index: 101;
+    transition: opacity 0.2s;
+}
+
+/* Nav links */
+.menu-nav-flyout a,
+.menu-nav-inline a,
+.menu-nav a {
+    color: #a259ff;
+    text-decoration: none;
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin: 0 12px;
+    transition: color 0.2s;
+    letter-spacing: 0.5px;
+}
+.menu-nav-flyout a:hover,
+.menu-nav-inline a:hover,
+.menu-nav a:hover {
+    color: #fff;
+}
+
+/* Close (X) button */
+.menu-close {
+    background: none;
+    border: none;
+    cursor: pointer;
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 18px;
+    position: relative;
+    z-index: 103;
+}
+.menu-close span {
+    position: absolute;
+    width: 32px;
+    height: 3px;
+    background: #a259ff;
+    border-radius: 2px;
+    transition: background 0.2s;
+}
+.menu-close span:first-child {
+    transform: rotate(45deg);
+}
+.menu-close span:last-child {
+    transform: rotate(-45deg);
+}
+
+/* Show menu on hover / focus within header area, hide burger */
+.menu-wrapper:hover .menu-burger,
+.menu-wrapper:focus-within .menu-burger,
+.menu-wrapper:hover .menu-icon,
+.menu-wrapper:focus-within .menu-icon {
+    opacity: 0;
+    pointer-events: none;
+}
+.menu-wrapper:hover .menu-nav-flyout,
+.menu-wrapper:focus-within .menu-nav-flyout {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Signup Section */
+.signup-content {
+	margin: 0 auto;
+	text-align: center;
+	padding: 60px 0;
+	width: 100%;
+}
+.logo-img-large {
+	height: 60px;
+	margin-bottom: 20px;
+}
+.signup-content p {
+	font-size: 1.2rem;
+	color: #e0e0e0;
+	margin-bottom: 30px;
+}
+.subtitle {
+	color: #a259ff;
+	font-size: 1rem;
+	font-style: italic;
+}
+.signup-btn, .login-btn {
+	background: #fff;
+	color: #181818;
+	border: none;
+	border-radius: 20px;
+	padding: 12px 40px;
+	font-size: 1.1rem;
+	font-weight: 700;
+	margin: 10px 0;
+	cursor: pointer;
+	transition: background 0.2s;
+}
+.signup-btn:hover, .login-btn:hover {
+	background: #a259ff;
+	color: #fff;
+}
+.login-link {
+	margin-top: 10px;
+	font-size: 1rem;
+}
+
+/* Signup Section */
+.signup-content {
+	margin: 0 auto;
+	text-align: center;
+	padding: 60px 0;
+	width: 100%;
+}
+.logo-img-large {
+	height: 60px;
+	margin-bottom: 20px;
+}
+.signup-content p {
+	font-size: 1.2rem;
+	color: #e0e0e0;
+	margin-bottom: 30px;
+}
+.subtitle {
+	color: #a259ff;
+	font-size: 1rem;
+	font-style: italic;
+}
+.signup-btn, .login-btn {
+	background: #fff;
+	color: #181818;
+	border: none;
+	border-radius: 20px;
+	padding: 12px 40px;
+	font-size: 1.1rem;
+	font-weight: 700;
+	margin: 10px 0;
+	cursor: pointer;
+	transition: background 0.2s;
+}
+.signup-btn:hover, .login-btn:hover {
+	background: #a259ff;
+	color: #fff;
+}
+.login-link {
+	margin-top: 10px;
+	font-size: 1rem;
+}
+
+/* Signup / CTA Section */
+.section.signup {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle at center, #2d0b4f 0%, #181818 80%);
+    box-sizing: border-box;
+    padding: 60px 20px;
+}
+
+.signup-content {
+    text-align: center;
+    width: 100%;
+    max-width: 420px;
+    color: #e0e0e0;
+}
+
+/* Logo */
+.logo-img-large {
+    height: 72px;
+    display: block;
+    margin: 0 auto 28px;
+    filter: drop-shadow(0 6px 18px rgba(162, 89, 255, 0.18));
+}
+
+/* Headline + subtitle */
+.signup-content p {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin-bottom: 36px;
+    color: #a259ff;
+}
+.signup-content .subtitle {
+    display: block;
+    color: #a259ff;
+    font-size: 1rem;
+    font-style: italic;
+    margin-top: 6px;
+}
+
+/* Buttons */
+.signup-btn, .login-btn {
+    display: block;
+    width: 320px;
+    max-width: 90%;
+    margin: 0 auto 20px;
+    padding: 14px 28px;
+    border: none;
+    border-radius: 18px;
+    background: #f0e9f9;
+    color: #1b1b1b;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    transition: background 0.25s ease, color 0.25s ease, transform 0.2s ease;
+}
+.signup-btn:hover, .login-btn:hover {
+    background: #a259ff;
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+/* Login text + button */
+.login-link {
+    font-size: 0.95rem;
+    color: #bdbdbd !important;
+    margin-top: 12px;
+}
+
+/* Login text + button */
+.login-link {
+    font-size: 0.95rem;
+    color: #bdbdbd !important;
+    margin-top: 12px;
+}
+
+/* Footer */
+.footer {
+    background: #000;
+    color: #bcbcbc;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    padding: 60px 12vw 40px 12vw;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+.footer-section {
+    display: flex;
+    flex-direction: column;
+    min-width: 180px;
+    margin-bottom: 20px;
+    line-height: 13px;
+}
+
+.footer-section h4 {
+    color: #e0e0e0;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 6px;
+    color: #a3a3a3;
+    transition: color 0.2s;
+    cursor: pointer;
+}
+
+.footer-section ul li:hover {
+    color: #fff;
+}
+
+/* Copyright block: push to right on wide screens, center on small screens */
+.footer-section.copyright {
+    margin-left: auto;       /* pushes this block to the right side */
+    text-align: right;       /* right-align text inside the block */
+    flex: 0 0 auto;          /* don't grow; keep natural width */
+    min-width: 200px;
+    color: #bdbdbd;
+    margin-top: 10px;
+}
+
+/* Keep centered on narrow viewports */
+@media (max-width: 900px) {
+    .footer-section.copyright {
+        margin-left: 0;
+        text-align: center;
+    }
+}
+
+/* Responsive layout */
+@media (max-width: 900px) {
+    .footer {
+        flex-direction: column;
+        text-align: center;
+        padding: 40px 5vw 20px 5vw;
+    }
+    .footer-section {
+        margin-bottom: 25px;
+        align-items: center;
+    }
+    .footer-section.copyright {
+        text-align: center;
+        margin-top: 10px;
+    }
+}
+
+/* Responsive adjustments relevant to header/footer */
+@media (max-width: 900px) {
+    .header {
+        flex-direction: column;
+        height: auto;
+        padding: 0 10px;
+    }
+    .menu-nav,
+    .menu-nav-inline,
+    .menu-nav-flyout {
+        flex-direction: column;
+        gap: 18px;
+        padding: 18px 0;
+        left: 0;
+        right: 0;
+        width: 100vw;
+        border-radius: 0 0 12px 12px;
+    }
+    .footer {
+        flex-direction: column;
+        padding: 30px 5vw 10px 5vw;
+    }
+    .copyright {
+        text-align: center;
+    }
+}

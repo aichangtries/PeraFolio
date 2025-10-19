@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Sign up — PeraFolio</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/auth.css" />
+</head>
+<body>
+  <header class="header" aria-hidden="true">
+    <div class="header-left">
+      <div class="logo"><img src="img/perafolio_logo.png" alt="PeraFolio" class="logo-img"></div>
+    </div>
+  </header>
+
+  <main class="auth-page">
+    <div class="auth-wrapper">
+      <img src="img/perafolio_logo.png" alt="PeraFolio" class="auth-logo">
+      <h1 class="auth-title">Sign up to your account</h1>
+
+      <form id="signupForm" class="auth-card" novalidate>
+        <div class="field">
+          <input id="su-email" name="email" type="email" placeholder="Email address or username" required>
+        </div>
+
+        <div class="field">
+          <input id="su-password" name="password" type="password" placeholder="Password" required>
+        </div>
+
+        <div class="row-between small">
+          <label class="checkbox"><input type="checkbox" name="remember"> Remember me</label>
+          <a class="muted" href="#">Forgot password?</a>
+        </div>
+
+        <button type="submit" class="btn-primary">Sign Up</button>
+
+        <button type="button" id="googleSignUp" class="btn-ghost">
+          <img src="img/google_icon.svg" alt="" class="icon"> Sign up with Google
+        </button>
+
+        <p class="muted small">Already have an account? <a href="signin.html">Sign in</a></p>
+      </form>
+    </div>
+  </main>
+
+  <script src="js/auth.js"></script>
+</body>
+</html>

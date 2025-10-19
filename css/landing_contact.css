@@ -1,0 +1,116 @@
+body {
+    padding-top: 90px;
+}
+
+/* Contact hero background using contact_hero.jpg */
+.contact-hero {
+    position: relative;
+    min-height: 700px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 6vw;
+    background-image: url("../img/contact_hero.jpg");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+/* dark purple overlay so content reads on top of image */
+.contact-hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.9);
+    pointer-events: none;
+}
+
+/* inner content sits above overlay */
+.contact-hero__inner {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 1100px;
+    color: #efe9e9;
+    text-align: center;
+}
+
+/* header styles */
+.contact-hero__title {
+    color: #d9c6f0;
+    letter-spacing: 1px;
+    margin: 0 0 12px;
+    font-size: 2rem;
+    font-weight: 700;
+}
+.contact-hero__lead {
+    color: rgba(255,255,255,0.85);
+    margin: 0 0 28px;
+    font-size: 1rem;
+}
+
+/* layout for the three columns */
+.contact-hero__columns {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+/* each contact card */
+.contact-card {
+    width: 260px;
+    padding: 22px 24px;
+    border-radius: 8px;
+    color: #efe9e9;
+    text-align: center; /* center icon + title + text like the reference */
+}
+.contact-card h4 {
+    margin: 0 0 8px;
+    color: #f0e6fb;
+    font-size: 0.95rem;
+    letter-spacing: 0.6px;
+}
+.contact-card p, .contact-card a {
+    color: rgba(255,255,255,0.78);
+    font-size: 0.9rem;
+    line-height: 1.4;
+    text-decoration: none;
+    margin: 0;
+}
+
+/* Fix contact icons: centered circular purple icons, SVGs use currentColor */
+.contact-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    color: #fff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    margin: 0 0 18px;
+    line-height: 1;
+}
+
+/* If using inline SVG icons, make them inherit the text color and size */
+.contact-icon svg {
+    width: 28px;
+    height: 28px;
+    fill: currentColor;
+    display: block;
+}
+
+/* responsive */
+@media (max-width: 900px) {
+    .contact-hero {
+        padding: 36px 4vw;
+        min-height: 520px;
+    }
+    .contact-hero__columns { gap: 18px; flex-direction: column; }
+    .contact-card { width: 100%; max-width: 420px; margin: 0 auto; text-align: left; }
+    .contact-card .contact-icon { margin-right: 12px; margin-bottom: 12px; }
+}
