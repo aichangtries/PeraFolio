@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PeraFolio — Profile</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/profile.css">
+</head>
+<body>
+    <!-- Header (reused from main layout) -->
+   <header class="header">
+        <div class="header-left">
+            <div class="logo">
+                <img src="img/perafolio_logo.png" alt="PeraFolio Logo" class="logo-img">
+            </div>
+            <button class="register-btn" aria-label="Register">Register</button>
+        </div>
+
+        <div class="menu-wrapper" aria-hidden="false">
+            <div class="menu-burger" tabindex="0" aria-label="Open menu">
+                <span></span><span></span><span></span>
+            </div>
+            <nav class="menu-nav-flyout" aria-hidden="true">
+                <a href="landing.html">Home</a>
+                <a href="landing-about.html" class="active">About</a>
+                <a href="landing-contact.html">Contact</a>
+                <button class="menu-close" aria-label="Close menu"><span></span><span></span></button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="profile-page">
+        <!-- Profile Hero -->
+        <section class="profile-hero">
+            <div class="profile-banner"></div>
+            
+            <div class="profile-info">
+                <div class="profile-avatar">
+                    <img src="img/profile_img.png" alt="">
+                    <span class="status-badge"></span>
+                </div>
+                
+                <div class="profile-meta">
+                    <h1>Alessandra Dagdag</h1>
+                    <div class="profile-username">@sandradagdag</div>
+                    
+                    <div class="profile-details">
+                        <div class="detail"><i class="icon-location"></i>Angeles, Pampanga</div>
+                        <div class="detail"><i class="icon-email"></i>mfdagdag1@student.hau.edu.ph</div>
+                        <div class="detail"><i class="icon-phone"></i>+63 987 654 3210</div>
+                        <div class="detail"><i class="icon-calendar"></i>Joined January 17, 2023</div>
+                    </div>
+
+                    <button class="btn-profile">View profile</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Settings Grid -->
+        <section class="settings-grid">
+            <!-- Financial Preferences -->
+            <div class="settings-card">
+                <h2>Financial Preference</h2>
+                <div class="settings-row">
+                    <span>Saving Frequency</span>
+                    <span class="value">Weekly</span>
+                </div>
+                <div class="settings-row">
+                    <span>Saving Reminders</span>
+                    <span class="value">Disabled</span>
+                </div>
+            </div>
+
+            <!-- Goal Management -->
+            <div class="settings-card">
+                <h2>Goal Management Settings</h2>
+                <div class="settings-row">
+                    <span>Default Goal View</span>
+                    <span class="value">Line Graph</span>
+                </div>
+                <div class="settings-row">
+                    <span>Goal Visibility</span>
+                    <span class="value">3</span>
+                </div>
+            </div>
+
+            <!-- Account Settings -->
+            <div class="settings-card">
+                <h2>Account Settings</h2>
+                <div class="settings-row">
+                    <span>Linked Accounts</span>
+                    <div class="linked-accounts">
+                        <img src="img/shopee.png" alt="Shopee">
+                        <img src="img/gcash.png" alt="GCash">
+                    </div>
+                </div>
+                <div class="settings-row">
+                    <span>Language</span>
+                    <span class="value">English</span>
+                </div>
+                <div class="settings-row">
+                    <span>Mode</span>
+                    <span class="value">Dark</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Account Actions -->
+        <section class="account-actions">
+            <button class="btn-reset">Reset Account</button>
+            <button class="btn-delete">Delete Account</button>
+        </section>
+
+        <!-- Logout -->
+        <div class="logout-wrapper">
+            <button class="btn-logout">
+                <i class="icon-logout"></i>
+                Log out
+            </button>
+        </div>
+    </main>
+</body>
+</html>
