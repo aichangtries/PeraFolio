@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PeraFolio — Budget</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/budget.css">
+</head>
+<body>
+    <!-- Header (keeps same header from styles.css) -->
+    <header class="header">
+        <div class="header-left">
+            <div class="logo">
+                <img src="img/perafolio_logo.png" alt="PeraFolio Logo" class="logo-img">
+            </div>
+            <button class="register-btn" aria-label="Register">Register</button>
+        </div>
+
+        <div class="menu-wrapper" aria-hidden="false">
+            <div class="menu-burger" tabindex="0" aria-label="Open menu">
+                <span></span><span></span><span></span>
+            </div>
+            <nav class="menu-nav-flyout" aria-hidden="true">
+                <a href="index.html">Dashboard</a>
+                <a href="landing-about.html">About</a>
+                <a href="landing-contact.html">Contact</a>
+                <button class="menu-close" aria-label="Close menu"><span></span><span></span></button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content budget-page">
+        <section class="budget-hero">
+            <div class="hero-left">
+                <div class="badge">Budget</div>
+                <div class="budget-title">BUDGET FOR THE MONTH OF <strong>SEPTEMBER</strong></div>
+                <div class="budget-total">6,000.00 <button class="edit-icon" aria-label="Edit budget">✎</button></div>
+            </div>
+
+            <div class="hero-right">
+                <div class="stat-tile purple">
+                    <div class="stat-top">
+                        <div class="stat-ico">📈</div>
+                        <div class="stat-change">+21%</div>
+                    </div>
+                    <div class="stat-value">P2,523</div>
+                    <div class="stat-label">Average Monthly Savings</div>
+                </div>
+
+                <div class="stat-tile dark">
+                    <div class="stat-top">
+                        <div class="stat-ico">💸</div>
+                        <div class="stat-change negative">-6%</div>
+                    </div>
+                    <div class="stat-value">P1,192</div>
+                    <div class="stat-label">Average Weekly Expenses</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="budget-grid">
+            <div class="budget-left card">
+                <div class="card-head">
+                    <div class="card-title">Budget Allocation</div>
+                    <div class="card-actions">
+                        <div class="meta">Last updated: <strong>September 12, 2025</strong></div>
+                        <button class="btn-reset">Reset</button>
+                        <button class="btn-add">+ Add Category</button>
+                    </div>
+                </div>
+
+                <table class="alloc-table" aria-label="Budget allocation">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Category</th>
+                            <th>Percent Allocation</th>
+                            <th>Current Allocated Budget</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><input type="checkbox" checked></td>
+                            <td class="cat">
+                                <span class="cat-ico color-purple">🎓</span>
+                                <div>
+                                    <div class="cat-name">Tuition</div>
+                                    <div class="cat-sub">Purple</div>
+                                </div>
+                            </td>
+                            <td class="align-center">25%</td>
+                            <td class="align-right">P1,500</td>
+                            <td class="actions">⋮</td>
+                        </tr>
+
+                        <tr class="alt">
+                            <td><input type="checkbox"></td>
+                            <td class="cat">
+                                <span class="cat-ico color-brown">🏠</span>
+                                <div>
+                                    <div class="cat-name">Dorm Fee</div>
+                                    <div class="cat-sub">Brown</div>
+                                </div>
+                            </td>
+                            <td class="align-center">25%</td>
+                            <td class="align-right">P1,500</td>
+                            <td class="actions">⋮</td>
+                        </tr>
+
+                        <tr>
+                            <td><input type="checkbox"></td>
+                            <td class="cat">
+                                <span class="cat-ico color-navy">💊</span>
+                                <div>
+                                    <div class="cat-name">Medicine</div>
+                                    <div class="cat-sub">Dark Navy</div>
+                                </div>
+                            </td>
+                            <td class="align-center">20%</td>
+                            <td class="align-right">P1,200</td>
+                            <td class="actions">⋮</td>
+                        </tr>
+
+                        <tr class="alt">
+                            <td><input type="checkbox"></td>
+                            <td class="cat">
+                                <span class="cat-ico color-light">🍽️</span>
+                                <div>
+                                    <div class="cat-name">Food</div>
+                                    <div class="cat-sub">Gray</div>
+                                </div>
+                            </td>
+                            <td class="align-center">15%</td>
+                            <td class="align-right">P900</td>
+                            <td class="actions">⋮</td>
+                        </tr>
+
+                        <tr>
+                            <td><input type="checkbox"></td>
+                            <td class="cat">
+                                <span class="cat-ico color-teal">🏖️</span>
+                                <div>
+                                    <div class="cat-name">Leisure</div>
+                                    <div class="cat-sub">Teal</div>
+                                </div>
+                            </td>
+                            <td class="align-center">10%</td>
+                            <td class="align-right">P600</td>
+                            <td class="actions">⋮</td>
+                        </tr>
+
+                        <tr class="alt">
+                            <td><input type="checkbox"></td>
+                            <td class="cat">
+                                <span class="cat-ico color-gray">🏋️</span>
+                                <div>
+                                    <div class="cat-name">Gym</div>
+                                    <div class="cat-sub">Dark Gray</div>
+                                </div>
+                            </td>
+                            <td class="align-center">5%</td>
+                            <td class="align-right">P300</td>
+                            <td class="actions">⋮</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="budget-right">
+                <div class="donut-card card">
+                    <div class="donut-head">
+                        <div class="donut-title">Budget Allocation Chart</div>
+                    </div>
+                    <div class="donut-body">
+                        <canvas id="donutChart" width="360" height="360" aria-label="Budget allocation chart"></canvas>
+
+                        <ul class="donut-legend">
+                            <li><span class="legend-swatch color-light"></span> Food</li>
+                            <li><span class="legend-swatch color-purple"></span> Tuition</li>
+                            <li><span class="legend-swatch color-navy"></span> Medicine</li>
+                            <li><span class="legend-swatch color-teal"></span> Leisure</li>
+                            <li><span class="legend-swatch color-gray"></span> Gym</li>
+                            <li><span class="legend-swatch color-brown"></span> Dorm Fee</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="spacer"></div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer (same as landing.html) -->
+    <footer class="footer">
+        <div class="footer-section">
+            <h4>Legal & Support</h4>
+            <ul>
+                <li>Privacy Policy</li>
+                <li>Terms & Conditions</li>
+                <li>Help Center</li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h4>Quick Links</h4>
+            <ul>
+                <li>About Us</li>
+                <li>Contact Us</li>
+                <li>FAQ</li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h4>Social Media</h4>
+            <ul>
+                <li>Facebook</li>
+                <li>Instagram</li>
+                <li>LinkedIn</li>
+            </ul>
+        </div>
+        <div class="footer-section copyright">
+            <h4>Copyright</h4>
+            <span>&copy; 2025 PeraFolio. All rights reserved.</span>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/budget.js" defer></script>
+</body>
+</html>
