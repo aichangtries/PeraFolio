@@ -39,7 +39,6 @@ body {
     margin: 6px 0;
     font-style: italic;
 }
-.hello small { color: var(--muted); font-style: normal; display:block; font-size:14px; margin-top:6px; }
 
 /* right-side ring stats */
 .ring-stats {
@@ -89,20 +88,27 @@ body {
 }
 /* ensure nested layout doesn't add extra spacing */
 .card > .saving-card { margin: 0; }
-/* make the saving circle stand out against the new background */
 .saving-circle {
-    background: #fff; /* white inner face */
-    border: 8px solid rgba(162,89,255,0.92); /* stronger purple ring */
-    width:96px;
-    height:96px;
-    display: grid;
-    place-items: center;
-    border-radius: 999px;
+    border: 8px solid rgba(162,89,255,0.92);
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
 }
+
+/* center the text perfectly inside */
 .saving-val {
-    text-align:center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
 }
+
 .saving-val .big { font-size:20px; font-weight:800; color: var(--bg-1); display:block; }
 .saving-val .small { font-size:12px; color:var(--muted); }
 
@@ -135,31 +141,145 @@ body {
     display:flex;
     align-items:center;
     justify-content:space-between;
-    margin-bottom:8px;
+    margin-bottom:10px;
     color:var(--muted);
 }
-.chart-header .month { color: var(--accent); font-weight:700; }
+
+/* chart header: stack month above legend */
+.chart-header .month { color: rgba(94, 28, 180, 0.92); font-weight:500; font-size:1rem; }
+
+/* legend layout stays horizontal but aligned under month */
+.chart-legend {
+    display: flex;
+    gap: 18px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+}
+
+/* individual legend item */
+.chart-legend li {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    color: rgb(61, 59, 59);
+    font-weight: 400;
+    font-size: 0.80rem;
+}
+
+/* shared swatch base */
+.legend-swatch { display: inline-block; vertical-align: middle; }
+
+/* solid round swatches for Actual/Minimum */
+.legend-dot { width: 14px; height: 14px; border-radius: 999px; }
+
+/* Actual: black filled dot */
+.legend-actual { background: #0b0b0b; }
+
+/* Minimum: purple filled dot */
+.legend-minimum { background: var(--accent); }
+
+/* Projected: small dashed line swatch */
+.legend-line {
+    width: 36px;
+    height: 0;
+    border-top: 3px dashed rgba(255,255,255,0.45);
+    border-radius: 2px;
+    margin-top: 2px;
+}
+
+/* ensure header keeps month left and legend right */
+.chart-header {
+    display: block;
+    align-items: left;
+    justify-content: space-between;
+    margin-bottom: -2px;
+    color: var(--muted);
+    padding-left: 10px;
+}
 
 /* circle SVG ring (for the small progress circles in top-right) */
+/* progress ring container */
+.ring-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    align-items: flex-end;
+}
+
+/* each ring + text line */
+.ring {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+}
+
+.ring.stat-top {
+    display: flex;
+    align-items: center;
+    gap: 12px !important;
+}
+
+/* wrapper containing SVG + number inside */
+.ring-wrapper {
+    position: relative;
+    width: 64px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* the circular ring itself */
 .progress-ring {
     width: 64px;
     height: 64px;
     transform: rotate(-90deg);
+    position: absolute;
+    top: 0;
+    left: 0;
 }
+
 .progress-ring circle {
     fill: transparent;
     stroke-width: 8;
     stroke-linecap: round;
 }
+
 .progress-ring .bg {
-    stroke: rgba(255,255,255,0.06);
+    stroke: rgba(255,255,255,0.08);
 }
+
 .progress-ring .fg {
     stroke: var(--accent);
-    stroke-dasharray: 201; /* will be updated by JS */
-    stroke-dashoffset: 201;
-    transition: stroke-dashoffset 900ms cubic-bezier(.2,.9,.3,1);
+    stroke-dasharray: 176;
+    stroke-dashoffset: 176;
+    transition: stroke-dashoffset 1s ease-out;
 }
+
+/* percentage number centered inside ring */
+.ring-value {
+    position: relative;
+    font-weight: 700;
+    font-size: 1rem;
+    color: #fff;
+    z-index: 1;
+}
+
+/* label beside the ring */
+.ring-text {
+    font-size: 0.9rem;
+    color: var(--muted);
+    text-align: left;
+}
+
+.ring-text.text-top {
+    font-size: 0.9rem;
+    color: var(--muted);
+    margin-right: 49px;
+}
+
 
 /* mini annotation */
 .badge {
@@ -198,6 +318,8 @@ body {
     align-self: flex-start;
     min-width: 180px;
 }
+
+
 
 /* responsive */
 @media (max-width: 1100px) {

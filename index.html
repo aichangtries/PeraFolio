@@ -43,32 +43,33 @@
         <section class="dashboard-hero">
             <div>
                 <div class="badge">Savings</div>
-                <div class="hello">Hello, Alessandra! <small>Welcome back</small></div>
+                <div class="hello">Hello, Alessandra! 👋</div>
             </div>
 
             <div class="ring-stats">
-                <div class="ring">
+                <div class="ring stat-top">
+                    <div class="ring-wrapper">
                     <svg class="progress-ring" data-progress="95" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
                         <circle class="bg" cx="32" cy="32" r="28"></circle>
                         <circle class="fg" cx="32" cy="32" r="28"></circle>
                     </svg>
-                    <div>
-                        <div class="num">95%</div>
-                        <div class="label">You saved 95% more this week!</div>
+                    <div class="ring-value">95%</div>
                     </div>
+                    <div class="ring-text text-top">You saved 95% more this week!</div>
                 </div>
 
                 <div class="ring">
+                    <div class="ring-wrapper">
                     <svg class="progress-ring" data-progress="47" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
                         <circle class="bg" cx="32" cy="32" r="28"></circle>
                         <circle class="fg" cx="32" cy="32" r="28"></circle>
                     </svg>
-                    <div>
-                        <div class="num">47%</div>
-                        <div class="label">You have a total of 47% excess savings!</div>
+                    <div class="ring-value">47%</div>
                     </div>
+                    <div class="ring-text">You have a total of 47% excess savings!</div>
                 </div>
             </div>
+
         </section>
 
         <!-- Grid of savings cards -->
@@ -93,7 +94,13 @@
                 <div class="chart-card">
                     <div class="chart-header">
                         <div class="month">September</div>
-                        <div class="badge">Actual · Minimum · Projected</div>
+
+                        <!-- legend moved below the month -->
+                        <ul class="chart-legend" aria-hidden="false">
+                            <li><span class="legend-swatch legend-dot legend-actual" aria-hidden="true"></span>Actual</li>
+                            <li><span class="legend-swatch legend-dot legend-minimum" aria-hidden="true"></span>Minimum</li>
+                            <li><span class="legend-swatch legend-line legend-projected" aria-hidden="true"></span>Projected</li>
+                        </ul>
                     </div>
                     <canvas data-series="[20,50,30,60,45,70,55,48]" height="140"></canvas>
                 </div>
@@ -119,8 +126,13 @@
                 <div class="chart-card">
                     <div class="chart-header">
                         <div class="month">September</div>
-                        <div class="badge">Actual · Minimum · Projected</div>
-                    </div>
+                         <!-- legend: Actual (solid black), Minimum (soft purple filled), Projected (dashed) -->
+                            <ul class="chart-legend" aria-hidden="false">
+                                <li><span class="legend-swatch legend-dot legend-actual" aria-hidden="true"></span>Actual</li>
+                                <li><span class="legend-swatch legend-dot legend-minimum" aria-hidden="true"></span>Minimum</li>
+                                <li><span class="legend-swatch legend-line legend-projected" aria-hidden="true"></span>Projected</li>
+                            </ul>
+                        </div>
                     <canvas data-series="[10,80,40,100,65,90,70]" height="140"></canvas>
                 </div>
             </div>
@@ -145,8 +157,13 @@
                 <div class="chart-card">
                     <div class="chart-header">
                         <div class="month">September</div>
-                        <div class="badge">Actual · Minimum · Projected</div>
-                    </div>
+                         <!-- legend: Actual (solid black), Minimum (soft purple filled), Projected (dashed) -->
+                            <ul class="chart-legend" aria-hidden="false">
+                                <li><span class="legend-swatch legend-dot legend-actual" aria-hidden="true"></span>Actual</li>
+                                <li><span class="legend-swatch legend-dot legend-minimum" aria-hidden="true"></span>Minimum</li>
+                                <li><span class="legend-swatch legend-line legend-projected" aria-hidden="true"></span>Projected</li>
+                            </ul>
+                        </div>
                     <canvas data-series="[30,60,90,40,80,55,95]" height="140"></canvas>
                 </div>
             </div>
