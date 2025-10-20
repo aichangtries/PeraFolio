@@ -319,7 +319,36 @@ body {
     min-width: 180px;
 }
 
+/* Savings modal */
+.savings-modal { position: fixed; inset: 0; display: none; z-index: 9999; }
+.savings-modal[aria-hidden="false"] { display: block; }
+.savings-modal__backdrop {
+  position: absolute; inset: 0; background: rgba(11,11,11,0.6);
+}
+.savings-modal__panel {
+  position: absolute;
+  right: 24px;
+  top: 18%;
+  width: 320px;
+  background: #efe9f7;
+  color: #111;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 18px 48px rgba(11,11,11,0.45);
+}
+.savings-modal__panel h3 { margin: 0 0 8px; color: var(--accent); }
+.savings-modal__meta { font-size: 0.9rem; color: #333; margin-bottom: 10px; display:flex; justify-content:space-between; }
+.savings-modal__label { display:block; margin-bottom:10px; color:#333; font-weight:700; }
+.savings-modal__label input {
+  width:100%; padding:10px 12px; border-radius:8px; border:1px solid rgba(11,11,11,0.08); font-size:1rem;
+}
+.savings-modal__actions { display:flex; gap:8px; justify-content:flex-end; margin-top:8px; }
+.savings-modal__entries { margin-top:12px; font-size:0.9rem; color:#333; max-height:140px; overflow:auto; }
+.savings-modal__entries li { list-style:none; margin-bottom:6px; padding:6px 8px; background: rgba(162,89,255,0.06); border-radius:6px; }
 
+/* Small button tweaks used by modal (reuse existing btn classes) */
+.btn-primary { background: var(--accent); color:#fff; border:none; padding:8px 12px; border-radius:8px; cursor:pointer; }
+.btn-ghost { background: #fff; color:#333; border:1px solid rgba(11,11,11,0.06); padding:8px 12px; border-radius:8px; cursor:pointer; }
 
 /* responsive */
 @media (max-width: 1100px) {
@@ -330,4 +359,104 @@ body {
     .dashboard-hero { padding: 20px; flex-direction:column; align-items:flex-start; gap:12px; }
     .hello { font-size:28px; }
     .ring-stats { align-items:flex-start; }
+}
+
+/* Savings entry modal (hidden by default) */
+#savingsModal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+}
+
+#savingsModal[aria-hidden="false"] {
+  display: block;
+}
+
+.savings-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(11, 11, 11, 0.6);
+}
+
+.savings-modal__panel {
+  position: absolute;
+  right: 24px;
+  top: 18%;
+  width: 320px;
+  background: #efe9f7;
+  color: #111;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 18px 48px rgba(11, 11, 11, 0.45);
+}
+
+.savings-modal__panel h3 {
+  margin: 0 0 8px;
+  color: var(--accent);
+}
+
+.savings-modal__meta {
+  font-size: 0.9rem;
+  color: #333;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.savings-modal__label {
+  display: block;
+  margin-bottom: 10px;
+  color: #333;
+  font-weight: 700;
+}
+
+.savings-modal__label input {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(11, 11, 11, 0.08);
+  font-size: 1rem;
+}
+
+.savings-modal__actions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+  margin-top: 8px;
+}
+
+.savings-modal__entries {
+  margin-top: 12px;
+  font-size: 0.9rem;
+  color: #333;
+  max-height: 140px;
+  overflow: auto;
+}
+
+.savings-modal__entries li {
+  list-style: none;
+  margin-bottom: 6px;
+  padding: 6px 8px;
+  background: rgba(162, 89, 255, 0.06);
+  border-radius: 6px;
+}
+
+/* Small button tweaks used by modal (reuse existing btn classes) */
+.btn-primary {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.btn-ghost {
+  background: #fff;
+  color: #333;
+  border: 1px solid rgba(11, 11, 11, 0.06);
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
 }

@@ -37,7 +37,8 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       const labels = JSON.parse(canvas.dataset.labels || '[]');
-      const chartLabels = labels.length ? labels : actual.map((_, i) => `P${i+1}`);
+      // remove generated "P1", "P2", ... labels — use empty labels so x-axis shows nothing
+      const chartLabels = labels.length ? labels : actual.map(() => '');
 
       new Chart(canvas.getContext('2d'), {
         type: 'line',
@@ -88,33 +89,157 @@ document.addEventListener('DOMContentLoaded', () => {
         options: {
           responsive: true,
           maintainAspectRatio: false,
-          plugins: { legend: { display: false } },
+          plugins: {
+            legend: { display: false },
+            tooltip: {
+              enabled: true,
+              backgroundColor: 'rgba(122,47,255,0.95)',  // <- purplish background
+              titleColor: '#fff',
+              bodyColor: '#fff',
+              displayColors: false,
+              padding: 10,
+              borderColor: 'rgba(255,255,255,0.08)',
+              borderWidth: 1,
+              cornerRadius: 8,
+              callbacks: {
+                label: (ctx) => {
+                  const v = ctx.raw;
+                  return `${ctx.dataset.label}: ${v}`;
+                }
+              }
+            }
+          },
           scales: {
             x: { display: false },
-            y: { display: false }
+            y: {
+              display: false,
+              grid: {
+                color: 'rgba(255,255,255,0.06)',
+                drawBorder: false,
+                tickLength: 0
+              }
+            }
           },
-          elements: { point: { hoverRadius: 6 } },
+          elements: {
+            line: { capBezierPoints: true },
+            point: { hoverRadius: 8 }
+          },
           interaction: { intersect: false, mode: 'index' }
         }
       });
     });
   }
 
-  // Quick input savings demo: attach to buttons with data-target
-  document.querySelectorAll('.btn-input[data-target]').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const target = document.querySelector(btn.dataset.target);
-      const current = Number(target.dataset.current || 0);
-      const goal = Number(target.dataset-goal || target.dataset.goal || 1000);
-      const add = Number(prompt('Add amount', '500')) || 0;
-      const next = Math.min(current + add, goal);
-      target.dataset.current = next;
-      // update shown value inside .saving-val .big
-      const big = target.querySelector('.big');
-      if (big) big.textContent = `P${next.toLocaleString()}`;
+  // --- Savings entry modal logic ---
+  const modal = document.getElementById('savingsModal');
+  const modalBackdrop = modal?.querySelector('.savings-modal__backdrop');
+  const modalName = modal?.querySelector('.savings-modal__target-name');
+  const modalCurrent = modal?.querySelector('.savings-modal__current-value');
+  const modalEntries = modal?.querySelector('.savings-modal__entries');
+  const amountInput = document.getElementById('savingsAmount');
+  const saveBtn = document.getElementById('savingsSave');
+  const cancelBtn = document.getElementById('savingsCancel');
 
-      // removed progress-ring update for card rings (no JS ring updates for cards)
-      // If you later want to re-enable an animated ring inside cards, add a dedicated selector and code here.
+  let modalTargetEl = null;
+
+  function parseAmountRaw(raw) {
+    if (!raw) return 0;
+    const cleaned = String(raw).replace(/[^0-9.-]/g, '');
+    const num = Number(cleaned);
+    return Number.isFinite(num) ? Math.max(0, Math.round(num)) : 0;
+  }
+
+  function getEntries(el) {
+    try { return JSON.parse(el.dataset.entries || '[]'); } catch (e) { return []; }
+  }
+  function setEntries(el, arr) {
+    el.dataset.entries = JSON.stringify(arr);
+  }
+  function sumEntries(el) {
+    const arr = getEntries(el);
+    return arr.reduce((s,n)=>(s+Number(n||0)),0);
+  }
+
+  function openModalFor(targetEl) {
+    modalTargetEl = targetEl;
+    const title = targetEl.querySelector('.card-title')?.textContent?.trim() || targetEl.id || 'Savings';
+    modalName.textContent = title;
+    const existing = getEntries(targetEl);
+    modalCurrent.textContent = `P${sumEntries(targetEl).toLocaleString()}`;
+    // render entries
+    renderEntriesList(existing);
+    amountInput.value = '';
+    modal.setAttribute('aria-hidden','false');
+    setTimeout(()=> amountInput.focus(),80);
+  }
+
+  function closeModal() {
+    modalTargetEl = null;
+    modal.setAttribute('aria-hidden','true');
+  }
+
+  function renderEntriesList(entries) {
+    if (!modalEntries) return;
+    if (!entries || !entries.length) {
+      modalEntries.innerHTML = '<div class="muted">No entries yet.</div>';
+      return;
+    }
+    modalEntries.innerHTML = '';
+    const ul = document.createElement('ul');
+    entries.forEach((v,i) => {
+      const li = document.createElement('li');
+      li.textContent = `P${Number(v).toLocaleString()}`;
+      ul.appendChild(li);
+    });
+    modalEntries.appendChild(ul);
+  }
+
+  // save handler
+  saveBtn?.addEventListener('click', (e) => {
+    if (!modalTargetEl) return;
+    const amount = parseAmountRaw(amountInput.value);
+    if (amount <= 0) { alert('Enter a valid amount'); amountInput.focus(); return; }
+
+    const entries = getEntries(modalTargetEl);
+    entries.push(amount);
+    setEntries(modalTargetEl, entries);
+
+    // update data-current to the sum of entries
+    const total = sumEntries(modalTargetEl);
+    modalTargetEl.dataset.current = total;
+
+    // update card display value
+    const big = modalTargetEl.querySelector('.big');
+    if (big) big.textContent = `P${total.toLocaleString()}`;
+
+    // re-render entries and current shown in modal
+    renderEntriesList(entries);
+    modalCurrent.textContent = `P${total.toLocaleString()}`;
+
+    // update hero totals
+    if (typeof updateTotalsDisplay === 'function') updateTotalsDisplay();
+
+    // close modal after short delay
+    setTimeout(() => closeModal(), 240);
+  });
+
+  cancelBtn?.addEventListener('click', closeModal);
+  modalBackdrop?.addEventListener('click', closeModal);
+  document.addEventListener('keydown', (e)=> {
+    if (e.key === 'Escape') closeModal();
+  });
+
+  // Replace previous quick prompt behavior: open modal instead
+  document.querySelectorAll('.btn-input[data-target]').forEach(btn => {
+    btn.removeEventListener?.('click', ()=>{}); // safe remove
+    btn.addEventListener('click', (ev) => {
+      const sel = btn.dataset.target;
+      const target = document.querySelector(sel);
+      if (!target) return;
+      openModalFor(target);
     });
   });
+
+  // initial totals update (in case dataset.current already present)
+  if (typeof updateTotalsDisplay === 'function') updateTotalsDisplay();
 });

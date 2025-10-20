@@ -30,36 +30,27 @@ body {
 
 /* layout tweaks for the numbers + stats section */
 .section.numbers {
+    display: flex;
+    align-items: center;  /* center vertically */
+    justify-content: space-between;
     padding: 64px 18vw;
-    align-items: flex-start;
     gap: 3.5rem;
 }
+
 .section.numbers .section-text {
-    flex: 1 1 58%;
-    max-width: 640px;
+    flex: 1;
+    max-width: 540px;
 }
-.section.numbers .section-text h2 {
-    font-size: 3rem;
-    line-height: 1.05;
-    margin-bottom: 18px;
-}
-.section.numbers .section-text .section-desc {
-    color: #bdbdbd;
-    max-width: 500px;
-    font-size: 0.95rem;
+.section-img {
+    flex: 0 0 auto;  /* prevent stretching */
 }
 
-/* Stats card — updated to match provided visual */
-.stats-card{
-    width: 320px;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 16px 40px rgba(0,0,0,0.55);
-    background: linear-gradient(180deg, rgba(88,44,139,0.98) 0%, rgba(58,29,97,0.98) 100%);
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-    border: 1px solid rgba(255,255,255,0.03);
+/* Stats card — ensure it stays the right size */
+.stats-card {
+    width: 320px;  /* fixed width */
+    margin: 0;     /* remove any auto margins */
+    background-color: #2d0b4f;
+    border-radius: 16px;
 }
 
 /* each stat block */
@@ -136,6 +127,10 @@ body {
     font-size: 0.95rem;
 }
 
+.section-text h2 {
+    font-size: 2.8rem;
+}
+
 /* mission + feature */
 .section.mission {
     display: flex;
@@ -203,11 +198,16 @@ body {
 
 /* Responsive: stack columns on small screens */
 @media (max-width: 900px) {
-    .section.numbers, .section.mission {
+    .section.numbers {
         flex-direction: column;
+        align-items: stretch;
         padding: 36px 6vw;
     }
-    .stats-card{ width: 100%; max-width: 560px; border-radius: 10px; }
+    
+    .stats-card {
+        width: 100%;
+        max-width: 560px;
+    }
     .feature-card { width: 100%; max-width: 560px; margin-top: 18px; }
     .center-statement .hero { font-size: 1.4rem; padding: 0 12px; }
     .stat .value .num{ font-size: 2rem; }
