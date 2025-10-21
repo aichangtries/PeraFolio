@@ -114,7 +114,7 @@ document.addEventListener('DOMContentLoaded', () => {
       // Show success toast then redirect
       showSuccess('Signed up successfully');
       // simulate async action, then redirect (adjust target as needed)
-      setTimeout(() => window.location.href = 'landing.html', 900);
+      setTimeout(() => window.location.href = 'index.html', 900);
     });
   }
 
@@ -136,7 +136,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!okPwd) { pwdInput.focus(); return; }
 
       showSuccess('Signed in successfully');
-      setTimeout(() => window.location.href = 'landing.html', 900);
+      setTimeout(() => window.location.href = 'index.html', 900);
     });
   }
 

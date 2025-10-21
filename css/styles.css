@@ -60,6 +60,10 @@ body {
     box-shadow: 0 10px 26px rgba(122,47,255,0.14);
 }
 
+.signup-content a {
+    text-decoration: none !important;
+}
+
 /* Menu wrapper (shared) */
 .menu-wrapper {
     position: relative;
