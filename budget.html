@@ -76,17 +76,17 @@
         </section>
 
         <section class="budget-grid">
-            <div class="budget-left card">
+            <div class="budget-card">
                 <div class="card-head">
-                    <div class="card-title">Budget Allocation Table</div>
+                    <h2>Budget Allocation</h2>
                     <div class="card-actions">
-                        <div class="meta">Last updated: <strong>September 12, 2025</strong></div>
+                        <div class="meta">Last updated: <strong>October 21, 2025</strong></div>
                         <button class="btn-reset">Reset</button>
                         <button class="btn-add">+ Add Category</button>
                     </div>
                 </div>
 
-                <table class="alloc-table" aria-label="Budget allocation">
+                <table class="alloc-table">
                     <thead>
                         <tr>
                             <th></th>
@@ -184,27 +184,7 @@
                 </table>
             </div>
 
-            <div class="budget-right">
-                <div class="donut-card card">
-                    <div class="donut-head">
-                        <div class="donut-title">Budget Allocation Chart</div>
-                    </div>
-                    <div class="donut-body">
-                        <canvas id="donutChart" width="360" height="360" aria-label="Budget allocation chart"></canvas>
-
-                        <ul class="donut-legend">
-                            <li><span class="legend-swatch color-light"></span> Food</li>
-                            <li><span class="legend-swatch color-purple"></span> Tuition</li>
-                            <li><span class="legend-swatch color-navy"></span> Medicine</li>
-                            <li><span class="legend-swatch color-teal"></span> Leisure</li>
-                            <li><span class="legend-swatch color-gray"></span> Gym</li>
-                            <li><span class="legend-swatch color-brown"></span> Dorm Fee</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="spacer"></div>
-            </div>
+            
         </section>
     </main>
 
@@ -239,8 +219,6 @@
             <span>&copy; 2025 PeraFolio. All rights reserved.</span>
         </div>
     </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="js/budget.js" defer></script>
     <script src="js/main.js" defer></script>
 </body>

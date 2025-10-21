@@ -20,10 +20,4 @@ document.addEventListener('DOMContentLoaded', () => {
         // Add logout logic here
         window.location.href = 'index.html';
     });
-
-    // View Profile
-    document.querySelector('.btn-profile')?.addEventListener('click', () => {
-        // Add profile view logic here
-        alert('Viewing full profile');
-    });
 });
