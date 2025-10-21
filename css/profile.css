@@ -119,6 +119,12 @@
     font-weight: 500;
 }
 
+/* Linked Accounts*/
+
+.linked-accounts img {
+    width: 25px;
+}
+
 /* Buttons */
 .btn-profile {
     background: var(--profile-gradient);
