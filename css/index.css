@@ -25,19 +25,17 @@ body {
 
 /* header / hero */
 .dashboard-hero {
-    padding: 36px 48px;
     display: flex;
-    gap: 32px;
-    align-items: flex-end;
-    justify-content: space-between;
-    background: transparent;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 48px 24px;
 }
 .hello {
-    font-size: 44px;
+    font-size: 2.5rem;
     font-weight: 700;
-    color: var(--white);
-    margin: 6px 0;
-    font-style: italic;
+    color: var(--accent);
+    margin-bottom: 24px;
 }
 
 /* right-side ring stats */
@@ -162,10 +160,34 @@ body {
 .chart-legend li {
     display: flex;
     align-items: center;
-    gap: 3px;
+    gap: 8px;
     color: rgb(61, 59, 59);
     font-weight: 400;
     font-size: 0.80rem;
+}
+
+/* Legend symbols */
+.legend-dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+}
+
+.legend-actual {
+    background: #0b0b0b;
+}
+
+.legend-minimum {
+    background: var(--accent);
+}
+
+.legend-line {
+    display: inline-block;
+    width: 20px;
+    height: 2px;
+    border-top: 2px dashed rgba(120,100,90,0.6);
+    margin-top: 0;
 }
 
 /* shared swatch base */
@@ -350,6 +372,22 @@ body {
 .btn-primary { background: var(--accent); color:#fff; border:none; padding:8px 12px; border-radius:8px; cursor:pointer; }
 .btn-ghost { background: #fff; color:#333; border:1px solid rgba(11,11,11,0.06); padding:8px 12px; border-radius:8px; cursor:pointer; }
 
+/* Add page badge styling to match budget page */
+.page-badge {
+    display: inline-flex;
+    align-items: center;
+    background: rgba(162,89,255,0.1);
+    border-radius: 999px;
+    padding: 8px 16px;
+    margin-bottom: 24px;
+}
+
+.badge-text {
+    color: #a259ff;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
 /* responsive */
 @media (max-width: 1100px) {
     .grid { grid-template-columns: repeat(2,1fr); }
@@ -359,6 +397,11 @@ body {
     .dashboard-hero { padding: 20px; flex-direction:column; align-items:flex-start; gap:12px; }
     .hello { font-size:28px; }
     .ring-stats { align-items:flex-start; }
+}
+@media (max-width: 768px) {
+    .hello {
+        font-size: 2rem;
+    }
 }
 
 /* Savings entry modal (hidden by default) */
@@ -377,65 +420,65 @@ body {
   position: absolute;
   inset: 0;
   background: rgba(11, 11, 11, 0.6);
-}
-
-.savings-modal__panel {
-  position: absolute;
-  right: 24px;
-  top: 18%;
-  width: 320px;
-  background: #efe9f7;
-  color: #111;
-  border-radius: 12px;
-  padding: 16px;
-  box-shadow: 0 18px 48px rgba(11, 11, 11, 0.45);
-}
-
-.savings-modal__panel h3 {
-  margin: 0 0 8px;
-  color: var(--accent);
-}
-
-.savings-modal__meta {
-  font-size: 0.9rem;
-  color: #333;
-  margin-bottom: 10px;
-  display: flex;
   justify-content: space-between;
 }
-
+.savings-modal__panel {
 .savings-modal__label {
   display: block;
   margin-bottom: 10px;
-  color: #333;
-  font-weight: 700;
-}
-
+  color: #333;;
+  font-weight: 700;f7;
+} color: #111;
+  border-radius: 12px;
 .savings-modal__label input {
-  width: 100%;
+  width: 100%;0 18px 48px rgba(11, 11, 11, 0.45);
   padding: 10px 12px;
   border-radius: 8px;
   border: 1px solid rgba(11, 11, 11, 0.08);
   font-size: 1rem;
+} color: var(--accent);
 }
-
 .savings-modal__actions {
-  display: flex;
-  gap: 8px;
+  display: flex;meta {
+  gap: 8px;: 0.9rem;
   justify-content: flex-end;
-  margin-top: 8px;
-}
-
+  margin-top: 8px;0px;
+} display: flex;
+  justify-content: space-between;
 .savings-modal__entries {
   margin-top: 12px;
-  font-size: 0.9rem;
-  color: #333;
-  max-height: 140px;
+  font-size: 0.9rem;l {
+  color: #333;ck;
+  max-height: 140px;x;
   overflow: auto;
+} font-weight: 700;
 }
-
 .savings-modal__entries li {
-  list-style: none;
+  list-style: none;el input {
+  margin-bottom: 6px;
+  padding: 6px 8px;x;
+  background: rgba(162, 89, 255, 0.06);
+  border-radius: 6px;gba(11, 11, 11, 0.08);
+} font-size: 1rem;
+}
+/* Small button tweaks used by modal (reuse existing btn classes) */
+.btn-primary {__actions {
+  background: var(--accent);
+  color: #fff;
+  border: none;nt: flex-end;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}savings-modal__entries {
+  margin-top: 12px;
+.btn-ghost { 0.9rem;
+  background: #fff;
+  color: #333;140px;
+  border: 1px solid rgba(11, 11, 11, 0.06);
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;tries li {
+} list-style: none;
   margin-bottom: 6px;
   padding: 6px 8px;
   background: rgba(162, 89, 255, 0.06);

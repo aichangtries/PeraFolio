@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/index.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/main.js" defer></script>
     <script src="js/index.js" defer></script>
 </head>
 <body>
@@ -49,12 +50,10 @@
 </header>
 
     <!-- Scrollable Content -->
-    <main class="main-content">
+    <main class="dashboard-content">
 
         <!-- Hero -->
         <section class="dashboard-hero">
-            <div>
-                <div class="badge">Savings</div>
                 <div class="hello">Hello, Alessandra! 👋</div>
             </div>
 
@@ -109,9 +108,18 @@
 
                         <!-- legend moved below the month -->
                         <ul class="chart-legend" aria-hidden="false">
-                            <li><span class="legend-swatch legend-dot legend-actual" aria-hidden="true"></span>Actual</li>
-                            <li><span class="legend-swatch legend-dot legend-minimum" aria-hidden="true"></span>Minimum</li>
-                            <li><span class="legend-swatch legend-line legend-projected" aria-hidden="true"></span>Projected</li>
+                            <li>
+                                <span class="legend-dot legend-actual"></span>
+                                Actual
+                            </li>
+                            <li>
+                                <span class="legend-dot legend-minimum"></span>
+                                Minimum
+                            </li>
+                            <li>
+                                <span class="legend-line"></span>
+                                Projected
+                            </li>
                         </ul>
                     </div>
                     <canvas data-series="[20,50,30,60,45,70,55,48]" height="140"></canvas>
@@ -140,9 +148,18 @@
                         <div class="month">September</div>
                          <!-- legend: Actual (solid black), Minimum (soft purple filled), Projected (dashed) -->
                             <ul class="chart-legend" aria-hidden="false">
-                                <li><span class="legend-swatch legend-dot legend-actual" aria-hidden="true"></span>Actual</li>
-                                <li><span class="legend-swatch legend-dot legend-minimum" aria-hidden="true"></span>Minimum</li>
-                                <li><span class="legend-swatch legend-line legend-projected" aria-hidden="true"></span>Projected</li>
+                                <li>
+                                    <span class="legend-dot legend-actual"></span>
+                                    Actual
+                                </li>
+                                <li>
+                                    <span class="legend-dot legend-minimum"></span>
+                                    Minimum
+                                </li>
+                                <li>
+                                    <span class="legend-line"></span>
+                                    Projected
+                                </li>
                             </ul>
                         </div>
                     <canvas data-series="[10,80,40,100,65,90,70]" height="140"></canvas>
@@ -171,9 +188,18 @@
                         <div class="month">September</div>
                          <!-- legend: Actual (solid black), Minimum (soft purple filled), Projected (dashed) -->
                             <ul class="chart-legend" aria-hidden="false">
-                                <li><span class="legend-swatch legend-dot legend-actual" aria-hidden="true"></span>Actual</li>
-                                <li><span class="legend-swatch legend-dot legend-minimum" aria-hidden="true"></span>Minimum</li>
-                                <li><span class="legend-swatch legend-line legend-projected" aria-hidden="true"></span>Projected</li>
+                                <li>
+                                    <span class="legend-dot legend-actual"></span>
+                                    Actual
+                                </li>
+                                <li>
+                                    <span class="legend-dot legend-minimum"></span>
+                                    Minimum
+                                </li>
+                                <li>
+                                    <span class="legend-line"></span>
+                                    Projected
+                                </li>
                             </ul>
                         </div>
                     <canvas data-series="[30,60,90,40,80,55,95]" height="140"></canvas>
@@ -214,6 +240,5 @@
             <span>&copy; 2025 PeraFolio. All rights reserved.</span>
         </div>
     </footer>
-    <script src="js/main.js" defer></script>
 </body>
 </html>

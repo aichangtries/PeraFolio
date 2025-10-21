@@ -88,6 +88,11 @@ body {
 }
 
 /* left card (table) */
+
+.budget-left.card {
+    max-width: 70%;
+}
+
 .card {
     background: rgba(255,255,255,0.02);
     border-radius: 14px;
@@ -122,7 +127,7 @@ body {
 .btn-add { background: var(--accent); color:#fff; }
 
 /* allocation table */
-.alloc-table { width: 70%; border-collapse:collapse; margin-top:6px; }
+.alloc-table { width: 100%; border-collapse:collapse; margin-top:6px; }
 .alloc-table thead th { text-align:left; color:var(--muted); font-size:12px; padding:12px 10px; }
 .alloc-table tbody tr { height:74px; border-bottom:1px solid rgba(255,255,255,0.02); }
 .alloc-table tbody tr.alt { background: rgba(162,89,255,0.04); }
