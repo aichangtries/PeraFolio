@@ -1,39 +1,32 @@
-/* Page-specific styles for landing-about (uses header/footer from styles.css) */
+/* Page-specific styles for about page */
 
-/* Page-only background override: black -> purple */
+/* Update page padding to account for new header height */
 body {
     background: linear-gradient(180deg, #000000 0%, #2d0b4f 100%);
-    padding-top: 90px;
+    padding-top: 80px; /* reduced from 90px to match new header height */
 }
 
-/* Remove per-section backgrounds on this page so the body gradient shows through */
-.section,
-.section.numbers,
-.section.center-statement,
-.section.mission,
-.section.signup {
+/* Keep sections transparent against gradient */
+.section {
     background: transparent !important;
     background-image: none !important;
-    box-shadow: none; /* if any sections used a shadow that reads like a block, remove it */
+    box-shadow: none;
 }
 
-/* If any section-specific rules later in this file set backgrounds, ensure they don't override */
+/* Ensure specific sections stay transparent */
 .section.intro,
-.section.smarter,
-.section.goals,
 .section.numbers,
 .section.center-statement,
-.section.mission,
-.section.signup {
+.section.mission {
     background: transparent !important;
 }
 
-/* layout tweaks for the numbers + stats section */
+/* Update section spacing to work with new header */
 .section.numbers {
     display: flex;
-    align-items: center;  /* center vertically */
+    align-items: center;
     justify-content: space-between;
-    padding: 64px 18vw;
+    padding: 48px 18vw; /* reduced top padding */
     gap: 3.5rem;
 }
 
@@ -107,7 +100,7 @@ body {
 
 /* centered statement block */
 .section.center-statement {
-    padding: 56px 8vw;
+    padding: 48px 8vw; /* reduced from 56px */
     text-align: center;
     min-height: 30vh;
     display: flex;
@@ -137,7 +130,7 @@ body {
     align-items: center;        /* center items vertically */
     justify-content: space-between;
     gap: 3rem;
-    padding: 64px 15vw;
+    padding: 48px 15vw; /* reduced from 64px */
     background: transparent;
     box-sizing: border-box;
 }

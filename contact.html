@@ -20,28 +20,31 @@
 </head>
 <body>
     <!-- Header (same as landing.html) -->
-    <header class="header">
-        <div class="header-left">
-            <div class="logo">
-                <img src="img/perafolio_logo.png" alt="PeraFolio Logo" class="logo-img">
-            </div>
-            <button class="register-btn" aria-label="Register">Register</button>
+    <!-- Header with new menu style -->
+<header class="header">
+    <div class="header-left">
+        <div class="logo">
+            <img src="img/perafolio_logo.png" alt="PeraFolio Logo" class="logo-img">
         </div>
+    </div>
 
-        <div class="menu-wrapper" aria-hidden="false">
-            <div class="menu-burger" tabindex="0" aria-label="Open menu">
-                <span></span><span></span><span></span>
-            </div>
-            <nav class="menu-nav-flyout" aria-hidden="true">
-                <a href="landing.html">Home</a>
+    <div class="menu-wrapper">
+        <button class="menu-burger" aria-expanded="false" aria-controls="mainNav">
+            <span class="burger-line"></span>
+            <span class="burger-line"></span>
+            <span class="burger-line"></span>
+        </button>
+        <nav class="menu-nav-flyout" id="mainNav">
+            <div class="menu-items">
+                <a href="index.html">Home</a>
                 <a href="budget.html">Budget</a>
-                <a href="about.html" class="active">About</a>
-                <a href="contact.html">Contact</a>
+                <a href="about.html">About</a>
+                <a href="contact.html" class="active">Contact</a>
                 <a href="profile.html">Profile</a>
-                <button class="menu-close" aria-label="Close menu"><span></span><span></span></button>
-            </nav>
-        </div>
-    </header>
+            </div>
+        </nav>
+    </div>
+</header>
 <!-- ...existing head/header ... -->
 <main class="main-content">
     <!-- Contact hero (replace existing hero markup) -->
@@ -105,5 +108,6 @@
             <span>&copy; 2025 PeraFolio. All rights reserved.</span>
         </div>
     </footer>
+    <script src="js/main.js" defer></script>
 </body>
 </html>
