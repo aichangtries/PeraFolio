@@ -97,11 +97,10 @@
 	margin-top: 80px;
 }
 .section {
-	min-height: 80vh;
+	min-height: 100vh;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	padding: 0 7vw;
 	background: linear-gradient(180deg, #2d0b4f 0%, #181818 100%);
 	/* removed the border that created the visible gray line */
 	border-bottom: none;
@@ -111,8 +110,8 @@
 	background-clip: padding-box;
 	box-sizing: border-box;
 	margin: 0; /* ensure sections sit flush */
-	gap: 2vw;
-	padding: 0 19vw;
+	gap: 4vw;
+	padding: 40px 10vw;
 }
 .section-text {
 	flex: 1.2;
@@ -137,86 +136,207 @@
 	flex: 1;
 	display: flex;
 	justify-content: flex-end;
-	align-items: flex-end;
-	min-width: 500px;
+	align-items: center;
+	min-width: 400px;
+	padding: 20px;
+	box-sizing: border-box;
 }
 .section-img img {
-	max-width: 410px;
-	width: 100%;
+	max-width: 100%;
+	width: auto;
 	height: auto;
-	margin-bottom: 0;
+	margin: 0;
+	object-fit: contain;
 }
 
 /* Fix smart section issue*/
 
 /* Ensure all sections keep consistent layout proportions */
 .section.smarter {
-    flex-direction: row-reverse; /* keeps image on left, text on right while keeping consistent spacing */
-
+    flex-direction: row-reverse;
 }
 
 .section.smarter .section-text,
 .section.smarter .section-img {
-    flex: 1; /* balance text and image equally like others */
-    margin: 0; /* remove any leftover misalignment */
+    flex: 1;
+    margin: 0;
 }
 
 .section.smarter .section-text {
     max-width: 520px;
-    margin-left: 1vw; /* same as others */
+    margin-left: 1vw;
 }
 
 .section.smarter .section-img {
     display: flex;
     justify-content: flex-end;
-    align-items: flex-end;
-    min-width: 340px;
+    align-items: center;
+    min-width: 300px;
+    padding: 20px;
 }
 
+/* Tablet Breakpoint */
+@media (max-width: 1024px) {
+    .section {
+        padding: 60px 8vw;
+        gap: 4vw;
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .section-text {
+        flex: 0 1 auto;
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 0;
+    }
+    
+    .section-text h2 {
+        font-size: 2.8rem;
+    }
+    
+    .section-text p {
+        font-size: 1rem;
+    }
+    
+    .section-img {
+        flex: 0 1 auto;
+        min-width: 0;
+        width: 100%;
+        max-width: 500px;
+        margin: 0 auto;
+        justify-content: center;
+    }
+    
+    .section-img img {
+        max-width: 360px;
+        margin: 0 auto;
+    }
+    
+    /* Override smarter section specific styles for tablet */
+    .section.smarter {
+        flex-direction: column;
+    }
+    
+    .section.smarter .section-text {
+        margin: 0 auto;
+    }
+    
+    .section.smarter .section-img {
+        justify-content: center;
+        padding: 20px 0;
+    }
+}
+
+/* Mobile Landscape Breakpoint */
 @media (max-width: 900px) {
-	.header {
-		flex-direction: column;
-		height: auto;
-		padding: 0 10px;
-	}
-	.main-content {
-		margin-top: 100px;
-	}
-	.section {
-		flex-direction: column;
-		text-align: center;
-		padding: 40px 5vw;
-	}
-	.section-img {
-		margin-bottom: 30px;
-		justify-content: center;
-		align-items: center;
-	}
-	.footer {
-		flex-direction: column;
-		padding: 30px 5vw 10px 5vw;
-	}
-	.copyright {
-		text-align: center;
-	}
-	.menu-nav {
-		flex-direction: column;
-		gap: 18px;
-		padding: 18px 0;
-		left: 0;
-		right: 0;
-		width: 100vw;
-		border-radius: 0 0 12px 12px;
-	}
+    .header {
+        flex-direction: column;
+        height: auto;
+        padding: 0 16px;
+    }
+    
+    .main-content {
+        margin-top: 90px;
+    }
+    
+    .section {
+        flex-direction: column;
+        text-align: center;
+        padding: 50px 6vw;
+        min-height: auto;
+        gap: 40px;
+    }
+    
+    .section-text {
+        max-width: 100%;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+    
+    .section-text h2 {
+        font-size: 2.4rem;
+        margin-bottom: 0.5em;
+    }
+    
+    .section-img {
+        min-width: 0;
+        width: 100%;
+        margin: 0;
+        justify-content: center;
+    }
+    
+    .section-img img {
+        max-width: 320px;
+        width: 90%;
+        margin: 0 auto;
+    }
+    
+    .footer {
+        flex-direction: column;
+        padding: 30px 5vw 20px;
+    }
+    
+    .copyright {
+        text-align: center;
+    }
+    
+    .menu-nav-flyout {
+        flex-direction: column;
+        gap: 18px;
+        padding: 20px 0;
+        height: auto;
+        top: 80px;
+        width: 100%;
+        text-align: center;
+    }
 }
 
+/* Mobile Portrait Breakpoint */
 @media (max-width: 520px) {
+    .section {
+        padding: 40px 4vw;
+    }
+    
+    .section-text h2 {
+        font-size: 2rem;
+    }
+    
+    .section-text p {
+        font-size: 0.95rem;
+    }
+    
+    .section-img img {
+        max-width: 280px;
+        width: 85%;
+    }
+    
     .signup-btn, .login-btn {
         width: 92%;
         max-width: none;
         padding: 12px 18px;
     }
-    .logo-img-large { height: 64px; margin-bottom: 14px; }
+    
+    .logo-img-large {
+        height: 56px;
+        margin-bottom: 14px;
+    }
+    
+    .menu-nav-flyout a {
+        font-size: 1.1rem;
+    }
+}
+
+/* Height-based media query for shorter screens */
+@media (max-height: 700px) {
+    .section {
+        padding: 40px 4vw;
+        min-height: auto;
+    }
+    
+    .section-img img {
+        max-width: 260px;
+    }
 }
 
 /* Section-specific gradients within the project palette */

@@ -213,3 +213,51 @@ body {
     .stat .value .num{ font-size: 2rem; }
     .stat-top .value .num{ font-size: 2.2rem; }
 }
+
+/* Responsive: stack columns on small screens */
+@media (max-width: 900px) {
+    .section.numbers {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 36px 6vw;
+    }
+    
+    .stats-card {
+        width: 100%;
+        max-width: 560px;
+    }
+    .feature-card { width: 100%; max-width: 560px; margin-top: 18px; }
+    .center-statement .hero { font-size: 1.4rem; padding: 0 12px; }
+    .stat .value .num{ font-size: 2rem; }
+    .stat-top .value .num{ font-size: 2.2rem; }
+}
+
+/* Mobile layout adjustments */
+@media (min-width: 300px) and (max-width: 1024px) {
+    .section.mission {
+        flex-direction: column-reverse;
+        padding: 36px 5vw;
+        gap: 2rem;
+    }
+
+    .mission-left {
+        width: 100%;
+        text-align: center;
+    }
+
+    .mission-left p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .section-img.mission-right {
+        width: 100%;
+        padding-right: 40px;
+    }
+
+    .feature-card {
+        width: 100%;
+        max-width: none;
+        margin-top: 0;
+    }
+}
