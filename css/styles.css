@@ -90,19 +90,12 @@ body {
     height: 80px;
 }
 
-/* Navigation menu - hidden by default */
+/* Navigation menu - visible by default on desktop/tablet */
 .menu-nav-flyout {
-    position: absolute;
-    right: 60px; /* position to the left of burger */
-    top: 50%;
-    transform: translateY(-50%);
     display: flex;
     align-items: center;
     gap: 32px;
     background: transparent;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.2s ease;
 }
 
 /* Menu items styling */
@@ -110,6 +103,11 @@ body {
     display: flex;
     align-items: center;
     gap: 32px;
+}
+
+/* Hide burger menu on desktop and tablet */
+.menu-burger {
+    display: none;
 }
 
 .menu-nav-flyout a {
@@ -222,6 +220,19 @@ body {
 @media (max-width: 768px) {
     .header {
         padding: 0 16px;
+        flex-direction: row !important;
+        justify-content: flex-end;
+        height: 80px;
+    }
+
+    /* Hide the logo on mobile */
+    .header-left {
+        display: none;
+    }
+
+    /* Show burger menu on mobile */
+    .menu-burger {
+        display: flex;
     }
 
     /* Mobile menu styles */
@@ -236,6 +247,9 @@ body {
         flex-direction: column;
         max-height: calc(100vh - 80px);
         overflow-y: auto;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.2s ease;
     }
 
     .menu-items {
@@ -495,6 +509,15 @@ body {
     margin-bottom: 36px;
     color: #a259ff;
 }
+
+.signup-content a {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin-bottom: 36px;
+    color: #a259ff;
+    text-decoration: none !important;
+}
+
 .signup-content .subtitle {
     display: block;
     color: #a259ff;

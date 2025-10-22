@@ -20,7 +20,32 @@
 </head>
 <body>
     
-    <!-- Replace header with sidebar -->
+    <!-- Mobile Header -->
+    <header class="header">
+        <div class="header-left">
+            <div class="logo">
+                <img src="img/perafolio_logo.png" alt="PeraFolio Logo" class="logo-img">
+            </div>
+        </div>
+
+        <div class="menu-wrapper">
+            <button class="menu-burger" aria-expanded="false" aria-controls="mainNav">
+                <span class="burger-line"></span>
+                <span class="burger-line"></span>
+                <span class="burger-line"></span>
+            </button>
+            <nav class="menu-nav-flyout" id="mainNav">
+                <div class="menu-items">
+                    <a href="index.html">Home</a>
+                    <a href="budget.html">Budget</a>
+                    <a href="profile.html" class="active">Profile</a>
+                    <a href="#" class="logout">Log out</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Desktop/Tablet Sidebar -->
     <aside class="sidebar">
         <nav class="sidebar-nav">
             <a href="index.html" class="nav-item">
@@ -174,5 +199,6 @@
         </footer>
     </div>
     <script src="js/main.js" defer></script>
+    <script src="js/profile.js" defer></script>
 </body>
 </html>

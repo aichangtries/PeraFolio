@@ -2,7 +2,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const menuWrapper = document.querySelector('.menu-wrapper');
     const burger = document.querySelector('.menu-burger');
     const menuNav = document.querySelector('.menu-nav-flyout');
-    
+    let isMenuOpen = false;
+
     // Check if device is touch-enabled
     const isTouchDevice = () => {
         return ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
@@ -13,27 +14,26 @@ document.addEventListener('DOMContentLoaded', () => {
         return window.innerWidth <= 1024;
     };
 
+    // Toggle menu function
+    const toggleMenu = () => {
+        isMenuOpen = !isMenuOpen;
+        burger.setAttribute('aria-expanded', isMenuOpen);
+        menuNav.style.visibility = isMenuOpen ? 'visible' : 'hidden';
+        menuNav.style.opacity = isMenuOpen ? '1' : '0';
+        burger.classList.toggle('active');
+    };
+
     // Only handle burger click on mobile/tablet
-    burger?.addEventListener('click', () => {
+    burger?.addEventListener('click', (e) => {
+        e.stopPropagation(); // Prevent click from bubbling to document
         if (isMobileView()) {
-            const isExpanded = burger.getAttribute('aria-expanded') === 'true';
-            burger.setAttribute('aria-expanded', !isExpanded);
-            menuNav.style.visibility = isExpanded ? 'hidden' : 'visible';
-            menuNav.style.opacity = isExpanded ? '0' : '1';
-            
-            // Toggle active class for animation
-            burger.classList.toggle('active');
+            toggleMenu();
         }
     });
 
-    // Close menu when clicking outside
-    document.addEventListener('click', (e) => {
-        if (!menuWrapper.contains(e.target)) {
-            burger?.setAttribute('aria-expanded', 'false');
-            menuNav.style.visibility = 'hidden';
-            menuNav.style.opacity = '0';
-            burger?.classList.remove('active');
-        }
+    // Prevent clicks inside menu from bubbling
+    menuNav?.addEventListener('click', (e) => {
+        e.stopPropagation();
     });
 
     // Close menu on escape key
