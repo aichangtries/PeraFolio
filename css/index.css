@@ -43,6 +43,29 @@ body {
     width: 100%;
 }
 
+/* Video styling */
+.welcome-video {
+    width: 100%;
+    max-width: 800px;
+    margin: 20px auto;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(11,11,11,0.18);
+}
+
+.welcome-video video {
+    width: 100%;
+    display: block;
+    border-radius: 12px;
+}
+
+/* Hide video on mobile */
+@media (max-width: 768px) {
+    .welcome-video {
+        display: none;
+    }
+}
+
 /* right-side ring stats */
 .ring-stats {
     display: flex;

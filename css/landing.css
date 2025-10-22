@@ -112,6 +112,32 @@
 	margin: 0; /* ensure sections sit flush */
 	gap: 4vw;
 	padding: 40px 10vw;
+}
+
+/* Featured video styles */
+.featured-video {
+    width: 100%;
+    max-width: 960px;
+    margin: 0 auto 40px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+    position: relative;
+}
+
+.featured-video video {
+    width: 100%;
+    display: block;
+    border-radius: 12px;
+    background: rgba(0,0,0,0.2);
+}
+
+/* Hide video on mobile */
+@media (max-width: 1024px) {
+    .desktop-only {
+        display: none;
+    }
+}
     opacity: 0;
     transform: translateY(30px);
     transition: opacity 0.8s ease-out, transform 0.8s ease-out;
