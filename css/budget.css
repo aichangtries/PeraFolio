@@ -127,13 +127,66 @@ body {
 .btn-add { background: var(--accent); color:#fff; }
 
 /* allocation table */
-.alloc-table { width: 100%; border-collapse:collapse; margin-top:6px; }
-.alloc-table thead th { text-align:left; color:var(--muted); font-size:12px; padding:12px 10px; }
-.alloc-table tbody tr { height:74px; border-bottom:1px solid rgba(255,255,255,0.02); }
-.alloc-table tbody tr.alt { background: rgba(162,89,255,0.04); }
-.alloc-table td { padding:12px 10px; vertical-align:middle; color: #efe9e9; }
-.cat { display:flex; gap:12px; align-items:center; }
-.cat-ico { width:44px; height:44px; border-radius:10px; display:grid; place-items:center; font-size:18px; }
+.alloc-table { 
+    width: 100%; 
+    border-collapse: collapse; 
+    margin-top: 6px;
+    table-layout: fixed;
+}
+.alloc-table thead th { 
+    text-align: left; 
+    color: var(--muted); 
+    font-size: 12px; 
+    padding: 12px 10px;
+}
+.alloc-table tbody tr { 
+    height: 74px; 
+    border-bottom: 1px solid rgba(255,255,255,0.02);
+}
+.alloc-table tbody tr.alt { 
+    background: rgba(162,89,255,0.04); 
+}
+.alloc-table td { 
+    padding: 12px 10px; 
+    vertical-align: middle; 
+    color: #efe9e9;
+}
+.cat { 
+    display: flex; 
+    gap: 12px; 
+    align-items: center;
+}
+.cat-ico { 
+    width: 44px; 
+    height: 44px; 
+    border-radius: 10px; 
+    display: grid; 
+    place-items: center; 
+    font-size: 18px;
+    flex-shrink: 0;
+}
+
+/* Set column widths */
+.alloc-table th:first-child,
+.alloc-table td:first-child {
+    width: 40px;
+}
+.alloc-table th:nth-child(2),
+.alloc-table td:nth-child(2) {
+    width: 35%;
+}
+.alloc-table th:nth-child(3),
+.alloc-table td:nth-child(3) {
+    width: 20%;
+}
+.alloc-table th:nth-child(4),
+.alloc-table td:nth-child(4) {
+    width: 35%;
+}
+.alloc-table th:last-child,
+.alloc-table td:last-child {
+    width: 40px;
+}
 .color-purple { background: linear-gradient(180deg,#7a2fff,#a259ff); color:#fff; }
 .color-brown { background: var(--brown); color:#fff; }
 .color-navy { background: var(--navy); color:#fff; }
@@ -144,8 +197,193 @@ body {
 .align-right { text-align:right; font-weight:700; }
 
 /* responsive */
-@media (max-width: 1000px) {
-    .budget-grid { grid-template-columns: 1fr; padding: 20px; }
-    .hero-right { flex-direction: column; align-items:flex-end; gap:12px; }
-    .donut-body { flex-direction:column; align-items:center; }
+/* Tablet styles (768px - 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .budget-grid {
+        padding: 24px;
+        max-width: 100%;
+    }
+
+    .budget-hero {
+        padding: 24px;
+        align-items: center;
+        text-align: center;
+    }
+
+    .hero-left {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .budget-total {
+        justify-content: center;
+    }
+
+    .hero-right {
+        margin-left: 0;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+        width: 100%;
+    }
+
+    .stat-tile {
+        width: auto;
+    }
+
+    .budget-card {
+        width: 100%;
+        max-width: none;
+    }
+
+    /* Table adjustments for tablet */
+    .alloc-table {
+        width: 100%;
+    }
+
+    .alloc-table thead th {
+        padding: 12px 8px;
+        font-size: 13px;
+    }
+
+    .alloc-table tbody td {
+        padding: 12px 8px;
+    }
+
+    .cat {
+        gap: 10px;
+    }
+
+    .cat-ico {
+        width: 40px;
+        height: 40px;
+    }
+
+    .card-head {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 16px;
+        margin-bottom: 16px;
+    }
+
+    .card-actions {
+        display: flex;
+        gap: 12px;
+    }
+
+    .btn-reset, .btn-add {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+    .budget-hero {
+        flex-direction: column;
+        padding: 20px;
+        gap: 24px;
+        text-align: center;
+    }
+
+    .hero-left {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .budget-total {
+        justify-content: center;
+    }
+
+    .badge {
+        margin: 0 auto;
+    }
+
+    .hero-right {
+        margin-left: 0;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .stat-tile {
+        width: 100%;
+        margin: 0;
+    }
+
+    .budget-card {
+        width: 100%;
+        padding: 16px;
+    }
+
+    .alloc-table {
+        display: table;
+        width: 100%;
+        margin: 0;
+        border-collapse: collapse;
+    }
+    
+    .alloc-table-wrapper {
+        width: 100%;
+        overflow-x: auto;
+        padding: 0;
+        margin: 0;
+    }
+    
+    .alloc-table thead th {
+        white-space: nowrap;
+        padding: 8px;
+        font-size: 11px;
+    }
+
+    .alloc-table tbody td {
+        padding: 8px;
+    }
+
+    .cat {
+        gap: 8px;
+        min-width: 120px;
+    }
+
+    .cat-ico {
+        width: 36px;
+        height: 36px;
+        font-size: 16px;
+    }
+
+    .budget-total {
+        font-size: 36px;
+    }
+
+    .card-head {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+
+    .card-actions {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .meta {
+        font-size: 11px;
+    }
+
+    .btn-reset, .btn-add {
+        padding: 6px 10px;
+        font-size: 12px;
+    }
+
+    .alloc-table tbody tr {
+        height: 60px;
+    }
 }

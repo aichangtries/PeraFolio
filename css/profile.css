@@ -274,7 +274,7 @@
 }
 
 /* Mobile styles */
-@media (max-width: 768px) {
+@media (max-width: 920px) {
     /* Show header and hide sidebar */
     .header {
         display: flex;

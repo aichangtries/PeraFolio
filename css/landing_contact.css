@@ -66,13 +66,17 @@ body {
     padding: 22px 24px;
     border-radius: 8px;
     color: #efe9e9;
-    text-align: center; /* center icon + title + text like the reference */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 .contact-card h4 {
     margin: 0 0 8px;
     color: #f0e6fb;
     font-size: 0.95rem;
     letter-spacing: 0.6px;
+    width: 100%;
 }
 .contact-card p, .contact-card a {
     color: rgba(255,255,255,0.78);
@@ -80,6 +84,7 @@ body {
     line-height: 1.4;
     text-decoration: none;
     margin: 0;
+    width: 100%;
 }
 
 /* Fix contact icons: centered circular purple icons, SVGs use currentColor */
@@ -110,7 +115,19 @@ body {
         padding: 36px 4vw;
         min-height: 520px;
     }
-    .contact-hero__columns { gap: 18px; flex-direction: column; }
-    .contact-card { width: 100%; max-width: 420px; margin: 0 auto; text-align: left; }
-    .contact-card .contact-icon { margin-right: 12px; margin-bottom: 12px; }
+    .contact-hero__columns { 
+        gap: 18px; 
+        flex-direction: column;
+        align-items: center;
+    }
+    .contact-card { 
+        width: 100%; 
+        max-width: 420px; 
+        margin: 0 auto;
+        text-align: center;
+        align-items: center;
+    }
+    .contact-card .contact-icon { 
+        margin-bottom: 12px; 
+    }
 }

@@ -3,6 +3,10 @@
     box-shadow: none !important;     /* remove existing shadow */
     background: rgba(0,0,0,0.18);    /* keep translucent card background */
     border: none;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 /* thin vertical line between columns (not on the first card) */
@@ -17,6 +21,8 @@
 .contact-card h4,
 .contact-card p {
     text-shadow: none;
+    text-align: center;
+    width: 100%;
 }
 
 /* collapse separators for stacked (mobile) layout */
