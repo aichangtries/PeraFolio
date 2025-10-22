@@ -17,11 +17,16 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Logout
-    document.querySelector('.btn-logout')?.addEventListener('click', () => {
+    // Logout functionality for all logout buttons
+    const handleLogout = (event) => {
+        event.preventDefault();
         if (confirm('Are you sure you want to log out?')) {
-            // Add logout logic here
             window.location.href = 'landing.html';
         }
+    };
+
+    // Add event listeners to all logout buttons (sidebar, mobile menu, and bottom button)
+    document.querySelectorAll('.logout, .btn-logout').forEach(button => {
+        button.addEventListener('click', handleLogout);
     });
 });
