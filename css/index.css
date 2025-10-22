@@ -17,7 +17,7 @@ body {
     margin: 0;
     padding-top: 90px;
     font-family: Inter, "Segoe UI", Roboto, Arial, sans-serif;
-    background: linear-gradient(180deg, var(--bg-1) 0%, #130617 20%, var(--bg-2) 100%);
+    background: linear-gradient(180deg, #0e0511 13%, #130617 20%, var(--bg-2) 100%);
     color: var(--white);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -69,6 +69,17 @@ body {
     gap: 20px;
     padding: 22px 26px 48px;
     box-sizing: border-box;
+}
+
+/* Budget section spacing */
+.page-badge {
+    margin-left: 26px;
+}
+
+.budget-header {
+    margin-left: 26px;
+    margin-bottom: 20px;
+    color: #bdbdbd;
 }
 
 /* savings card */
@@ -502,4 +513,132 @@ body {
   padding: 8px 12px;
   border-radius: 8px;
   cursor: pointer;
+}
+
+/* Print styles for budget/index page - Single Page Optimization */
+@media print {
+    @page {
+        margin: 0.5cm;
+        size: auto;
+    }
+
+    /* Reset and optimize for single page */
+    body {
+        background: white !important;
+        padding: 8px !important;
+        margin: 0 !important;
+        font-size: 9pt !important;
+        line-height: 1.2 !important;
+    }
+
+    /* Compact header */
+    .dashboard-hero {
+        padding: 8px 0 !important;
+        margin-bottom: 10px !important;
+    }
+
+    .hello {
+        font-size: 14pt !important;
+        margin-bottom: 8px !important;
+    }
+
+    /* Optimize grid layout */
+    .grid {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 10px !important;
+        padding: 0 !important;
+    }
+
+    /* Compact card styling */
+    .card {
+        padding: 10px !important;
+        margin-bottom: 10px !important;
+        border: 1px solid #ccc !important;
+        background: white !important;
+        box-shadow: none !important;
+        break-inside: avoid !important;
+    }
+
+    /* Essential budget info */
+    .page-badge, .budget-header {
+        margin: 0 0 10px 0 !important;
+        font-size: 12pt !important;
+        padding: 0 !important;
+        color: black !important;
+        background: none !important;
+        display: inline-block !important;
+    }
+
+    /* Optimize savings display */
+    .saving-card {
+        background: white !important;
+        padding: 10px !important;
+        border: 1px solid #ccc !important;
+    }
+
+    .saving-circle {
+        width: 60px !important;
+        height: 60px !important;
+        border: 1px solid #333 !important;
+    }
+
+    .saving-val .big {
+        font-size: 14pt !important;
+    }
+
+    .saving-val .small {
+        font-size: 8pt !important;
+    }
+
+    /* Optimize chart display */
+    .chart-card {
+        height: 120px !important;
+        background: white !important;
+    }
+
+    .chart-header {
+        margin-bottom: 5px !important;
+        font-size: 10pt !important;
+    }
+
+    .chart-legend {
+        gap: 10px !important;
+    }
+
+    .chart-legend li {
+        font-size: 8pt !important;
+    }
+
+    /* Compact ring stats */
+    .ring-stats {
+        gap: 5px !important;
+    }
+
+    .ring {
+        gap: 5px !important;
+    }
+
+    .ring-wrapper {
+        width: 40px !important;
+        height: 40px !important;
+    }
+
+    /* Hide non-essential elements */
+    .btn-input,
+    .savings-modal,
+    #savingsModal,
+    .modal,
+    button[type="button"],
+    .menu-burger,
+    .header {
+        display: none !important;
+    }
+
+    /* Force avoid page breaks */
+    .saving-card,
+    .chart-card,
+    .ring-stats {
+        page-break-inside: avoid !important;
+    }
 }

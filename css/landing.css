@@ -112,6 +112,40 @@
 	margin: 0; /* ensure sections sit flush */
 	gap: 4vw;
 	padding: 40px 10vw;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Content animations */
+.section-text h2 {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out 0.2s, transform 0.6s ease-out 0.2s;
+}
+
+.section-text p {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out 0.4s, transform 0.6s ease-out 0.4s;
+}
+
+.section-img {
+    opacity: 0;
+    transform: translateX(30px);
+    transition: opacity 0.6s ease-out 0.6s, transform 0.6s ease-out 0.6s;
+}
+
+.section.visible .section-text h2,
+.section.visible .section-text p,
+.section.visible .section-img {
+    opacity: 1;
+    transform: translate(0);
 }
 .section-text {
 	flex: 1.2;
@@ -336,6 +370,112 @@
     
     .section-img img {
         max-width: 260px;
+    }
+}
+
+/* Print styles for landing page - Single Page Optimization */
+@media print {
+    @page {
+        margin: 0.5cm;
+        size: auto;
+    }
+
+    /* Basic reset for printing */
+    body {
+        background: white !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        font-size: 11pt !important;
+    }
+
+    .main-content {
+        margin-top: 0 !important;
+    }
+
+    /* Optimize sections for single page */
+    .section {
+        min-height: 0 !important;
+        padding: 15px 20px !important;
+        margin: 0 !important;
+        display: flex !important;
+        flex-direction: row !important;
+        gap: 20px !important;
+        background: none !important;
+        page-break-inside: avoid !important;
+        opacity: 1 !important;
+        transform: none !important;
+    }
+
+    /* Adjust section text */
+    .section-text {
+        flex: 1.5 !important;
+        max-width: 60% !important;
+        margin: 0 !important;
+    }
+
+    .section-text h2 {
+        font-size: 14pt !important;
+        margin-bottom: 6px !important;
+        color: black !important;
+        opacity: 1 !important;
+        transform: none !important;
+    }
+
+    .section-text p {
+        font-size: 9pt !important;
+        margin-bottom: 4px !important;
+        color: #333 !important;
+        line-height: 1.2 !important;
+        opacity: 1 !important;
+        transform: none !important;
+    }
+
+    /* Optimize images */
+    .section-img {
+        flex: 1 !important;
+        min-width: 0 !important;
+        max-width: 35% !important;
+        padding: 0 !important;
+        opacity: 1 !important;
+        transform: none !important;
+    }
+
+    .section-img img {
+        max-width: 100% !important;
+        max-height: 180px !important;
+        object-fit: contain !important;
+    }
+
+    /* Smart section adjustments */
+    .section.smarter {
+        flex-direction: row-reverse !important;
+    }
+
+    /* Hide non-essential elements */
+    .header,
+    .footer,
+    .menu-wrapper,
+    .menu-burger,
+    .menu-nav-flyout,
+    .menu-close,
+    button,
+    .signup-btn,
+    .login-btn {
+        display: none !important;
+    }
+
+    /* Remove animations and transitions */
+    * {
+        transition: none !important;
+        animation: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+    }
+
+    /* Force black text */
+    * {
+        color: black !important;
+        text-shadow: none !important;
     }
 }
 

@@ -1,4 +1,22 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Initialize animations for sections
+    const sections = document.querySelectorAll('.section');
+    
+    // Intersection Observer for scroll animations
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, {
+        threshold: 0.2
+    });
+
+    // Observe all sections
+    sections.forEach(section => observer.observe(section));
+
+    // Menu setup
     const menuWrapper = document.querySelector('.menu-wrapper');
     const burger = document.querySelector('.menu-burger');
     const menuNav = document.querySelector('.menu-nav-flyout');

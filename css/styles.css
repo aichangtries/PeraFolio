@@ -144,6 +144,75 @@ body {
 }
 
 /* Show menu on hover of wrapper */
+
+/* Animation Keyframes */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        transform: scale(0.95);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Global animation classes */
+.animate-fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+}
+
+.animate-slide-in {
+    animation: slideIn 0.5s ease-out forwards;
+}
+
+.animate-scale-in {
+    animation: scaleIn 0.4s ease-out forwards;
+}
+
+/* Common hover transitions */
+.hover-lift {
+    transition: transform 0.2s ease;
+}
+
+.hover-lift:hover {
+    transform: translateY(-2px);
+}
+
+.hover-scale {
+    transition: transform 0.2s ease;
+}
+
+.hover-scale:hover {
+    transform: scale(1.02);
+}
+
+/* Ensure smooth transitions for common properties */
+a, button, .btn, .card, .section-img img {
+    transition: all 0.3s ease;
+}
 .menu-wrapper:hover .menu-nav-flyout {
     opacity: 1;
     visibility: visible;
@@ -640,5 +709,90 @@ body {
         right: 0;
         width: 100vw;
         border-radius: 0 0 12px 12px;
+    }
+}
+
+/* Print styles */
+@media print {
+    /* Reset background colors and fonts for better printing */
+    body {
+        background: white !important;
+        color: black !important;
+        font-size: 12pt;
+        line-height: 1.4;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Hide navigation elements */
+    .header,
+    .menu-nav,
+    .menu-nav-inline,
+    .menu-nav-flyout,
+    .menu-burger,
+    .footer,
+    .signup-content,
+    .login-btn,
+    .signup-btn {
+        display: none !important;
+    }
+
+    /* Ensure text is readable */
+    h1, h2, h3, h4, h5, h6 {
+        color: black !important;
+        page-break-after: avoid;
+        page-break-inside: avoid;
+    }
+
+    p, li {
+        color: black !important;
+    }
+
+    /* Remove shadows and effects */
+    * {
+        text-shadow: none !important;
+        box-shadow: none !important;
+    }
+
+    /* Ensure links are useful in printed version */
+    a {
+        color: #000 !important;
+        text-decoration: underline;
+    }
+
+    /* Show the URL after links */
+    a[href]:after {
+        content: " (" attr(href) ")";
+        font-size: 90%;
+    }
+
+    /* But not for internal anchor links */
+    a[href^="#"]:after {
+        content: "";
+    }
+
+    /* Ensure images are printable */
+    img {
+        max-width: 100% !important;
+        page-break-inside: avoid;
+    }
+
+    /* Add page breaks before major sections */
+    section, .section {
+        page-break-inside: avoid;
+    }
+
+    /* Remove gradients and backgrounds */
+    [style*="background"], [class*="bg-"] {
+        background: none !important;
+    }
+
+    /* Ensure tables are readable */
+    table {
+        border-collapse: collapse;
+    }
+
+    table, th, td {
+        border: 1px solid #999 !important;
     }
 }
